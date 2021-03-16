@@ -69,6 +69,12 @@ minetest.register_craft({
 -- Requires ethereal:fish_raw
 if minetest.get_modpath("ethereal") then
 
+	local ethereal_fish = {
+		{"ethereal:fish_chichlid"},
+		{"ethereal:fish_bluefin"},
+		{"ethereal:fish_clownfish"}
+	}
+
 	-- Professional Fishing Rod
 	minetest.register_craftitem("caverealms:angler_rod", {
 		description = "Pro Fishing Rod",
@@ -119,7 +125,7 @@ if minetest.get_modpath("ethereal") then
 			or node == "default:river_water_source")
 			and math.random(1, 100) < 35 then
 
-				local type = ethereal.fish[math.random(1, #ethereal.fish)][1]
+				local type = ethereal_fish[math.random(1, #ethereal_fish)][1]
 				local inv = user:get_inventory()
 
 				if inv:room_for_item("main", {name = type}) then
