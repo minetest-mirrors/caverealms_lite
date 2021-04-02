@@ -75,11 +75,26 @@ if minetest.get_modpath("ethereal") then
 		{"ethereal:fish_clownfish"}
 	}
 
+	-- Used when right-clicking with fishing rod to check for worm and bait rod
+	local rod_use = function(itemstack, placer, pointed_thing)
+
+		local inv = placer:get_inventory()
+
+		if inv:contains_item("main", "caverealms:glow_bait") then
+
+			inv:remove_item("main", "caverealms:glow_bait")
+
+			return ItemStack("caverealms:angler_rod_baited")
+		end
+	end
+
 	-- Professional Fishing Rod
 	minetest.register_craftitem("caverealms:angler_rod", {
 		description = "Pro Fishing Rod",
 		inventory_image = "caverealms_angler_rod.png",
-		wield_image = "caverealms_angler_rod.png"
+		wield_image = "caverealms_angler_rod.png",
+		on_place = rod_use,
+		on_secondary_use = rod_use
 	})
 
 	minetest.register_craft({
