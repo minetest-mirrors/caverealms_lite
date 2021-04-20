@@ -7,7 +7,7 @@ minetest.register_node("caverealms:glow_crystal", {
 	sounds = default.node_sound_glass_defaults(),
 	light_source = 13,
 	paramtype = "light",
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	drawtype = "glasslike",
 	sunlight_propagates = true,
 })
@@ -21,7 +21,7 @@ minetest.register_node("caverealms:glow_emerald", {
 	sounds = default.node_sound_glass_defaults(),
 	light_source = 13,
 	paramtype = "light",
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	drawtype = "glasslike",
 	sunlight_propagates = true,
 })
@@ -35,7 +35,7 @@ minetest.register_node("caverealms:glow_mese", {
 	sounds = default.node_sound_glass_defaults(),
 	light_source = 13,
 	paramtype = "light",
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	drawtype = "glasslike",
 	sunlight_propagates = true,
 })
@@ -49,7 +49,7 @@ minetest.register_node("caverealms:glow_ruby", {
 	sounds = default.node_sound_glass_defaults(),
 	light_source = 13,
 	paramtype = "light",
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	drawtype = "glasslike",
 	sunlight_propagates = true,
 })
@@ -63,7 +63,7 @@ minetest.register_node("caverealms:glow_amethyst", {
 	sounds = default.node_sound_glass_defaults(),
 	light_source = 13,
 	paramtype = "light",
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	drawtype = "glasslike",
 	sunlight_propagates = true,
 })
@@ -119,7 +119,7 @@ minetest.register_node("caverealms:thin_ice", {
 	is_ground_content = true,
 	groups = {cracky = 3, puts_out_fire = 1, cools_lava = 1, slippery = 3},
 	sounds = default.node_sound_glass_defaults(),
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	drawtype = "glasslike",
 	sunlight_propagates = true,
 	freezemelt = "default:water_source",
@@ -135,7 +135,7 @@ minetest.register_node("caverealms:salt_crystal", {
 	sounds = default.node_sound_glass_defaults(),
 	light_source = 11,
 	paramtype = "light",
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	drawtype = "glasslike",
 	sunlight_propagates = true,
 })
@@ -296,7 +296,7 @@ minetest.register_node("caverealms:stone_with_salt", {
 	tiles = {"caverealms_salty2.png"},
 	light_source = 9,
 	paramtype = "light",
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	drawtype = "glasslike",
 	sunlight_propagates = true,
 	is_ground_content = true,
