@@ -25,7 +25,7 @@ local function setting(stype, name, default)
 end
 
 --generation settings
-setting("number", "ymin", -30000) --bottom realm limit
+setting("number", "ymin", -27000) --bottom realm limit (was -30000)
 setting("number", "ymax", -1500) --top realm limit
 setting("number", "tcave", 0.75) --cave threshold
 

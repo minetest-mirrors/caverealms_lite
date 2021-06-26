@@ -184,15 +184,15 @@ function caverealms:crystal_stalagmite(x, y, z, area, data, biome)
 	end
 
 	local stalids = {
-		{ {c_crystore, c_crystal}, {c_emore, c_emerald} },
-		{ {c_emore, c_emerald}, {c_crystore, c_crystal} },
-		{ {c_emore, c_emerald}, {c_meseore, c_mesecry} },
-		{ {c_ice, c_thinice}, {c_crystore, c_crystal}},
-		{ {c_ice, c_thinice}, {c_crystore, c_crystal}},
-		{ {c_rubore, c_ruby}, {c_meseore, c_mesecry}},
-		{ {c_crystore, c_crystal}, {c_rubore, c_ruby} },
-		{ {c_rubore, c_ruby}, {c_emore, c_emerald}},
-		{ {c_amethore, c_ameth}, {c_meseore, c_mesecry} },
+		{{c_crystore, c_crystal}, {c_emore, c_emerald}},
+		{{c_emore, c_emerald}, {c_crystore, c_crystal}},
+		{{c_emore, c_emerald}, {c_meseore, c_mesecry}},
+		{{c_ice, c_thinice}, {c_crystore, c_crystal}},
+		{{c_ice, c_thinice}, {c_crystore, c_crystal}},
+		{{c_rubore, c_ruby}, {c_meseore, c_mesecry}},
+		{{c_crystore, c_crystal}, {c_rubore, c_ruby}},
+		{{c_rubore, c_ruby}, {c_emore, c_emerald}},
+		{{c_amethore, c_ameth}, {c_meseore, c_mesecry}}
 	}
 
 	local nid_a
@@ -258,7 +258,7 @@ end
 --crystal stalactite spawner
 function caverealms:crystal_stalactite(x, y, z, area, data, biome)
 
-	if not caverealms:above_solid(x,y,z,area,data) then
+	if not caverealms:above_solid(x, y, z, area, data) then
 		return
 	end
 
@@ -279,21 +279,22 @@ function caverealms:crystal_stalactite(x, y, z, area, data, biome)
 	end
 
 	if biome == 4 or biome == 5 then
+
 		if random(3) == 1 then
 			mode = 2
 		end
 	end
 
 	local stalids = {
-		{ {c_crystore, c_crystal}, {c_emore, c_emerald} },
-		{ {c_emore, c_emerald}, {c_crystore, c_crystal} },
-		{ {c_emore, c_emerald}, {c_meseore, c_mesecry} },
-		{ {c_ice, c_thinice}, {c_crystore, c_crystal}},
-		{ {c_ice, c_thinice}, {c_crystore, c_crystal}},
-		{ {c_rubore, c_ruby}, {c_meseore, c_mesecry}},
-		{ {c_crystore, c_crystal}, {c_rubore, c_ruby} },
-		{ {c_rubore, c_ruby}, {c_emore, c_emerald}},
-		{ {c_amethore, c_ameth}, {c_meseore, c_mesecry} },
+		{{c_crystore, c_crystal}, {c_emore, c_emerald}},
+		{{c_emore, c_emerald}, {c_crystore, c_crystal}},
+		{{c_emore, c_emerald}, {c_meseore, c_mesecry}},
+		{{c_ice, c_thinice}, {c_crystore, c_crystal}},
+		{{c_ice, c_thinice}, {c_crystore, c_crystal}},
+		{{c_rubore, c_ruby}, {c_meseore, c_mesecry}},
+		{{c_crystore, c_crystal}, {c_rubore, c_ruby}},
+		{{c_rubore, c_ruby}, {c_emore, c_emerald}},
+		{{c_amethore, c_ameth}, {c_meseore, c_mesecry}}
 	}
 
 	local nid_a
@@ -359,7 +360,7 @@ end
 --glowing crystal stalagmite spawner
 function caverealms:salt_stalagmite(x, y, z, area, data, biome)
 
-	if not caverealms:below_solid(x,y,z,area,data) then
+	if not caverealms:below_solid(x, y, z, area, data) then
 		return
 	end
 
@@ -415,6 +416,7 @@ function caverealms:giant_shroom(x, y, z, area, data)
 	end
 
 	z = z - 5
+
 	local vi
 
 	--cap
@@ -445,17 +447,24 @@ function caverealms:giant_shroom(x, y, z, area, data)
 	end
 	end
 
+	local ai
+
 	--stem
 	for j = 0, 5 do
 		for k = -1, 1 do
 
 			vi = area:index(x + k, y + j, z)
+
 			data[vi] = c_stem
 
 			if k == 0 then
-				local ai = area:index(x, y + j, z + 1)
+
+				ai = area:index(x, y + j, z + 1)
+
 				data[ai] = c_stem
+
 				ai = area:index(x, y + j, z - 1)
+
 				data[ai] = c_stem
 			end
 		end

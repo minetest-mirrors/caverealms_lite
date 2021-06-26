@@ -118,7 +118,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 	--2D noise for biomes (will be 3D humidity/temp later)
 	local nvals_biome = minetest.get_perlin_map(np_biome,
-			chulens2D):get2dMap_flat({x = x0 + 150, y = z0 + 50})
+			chulens2D):get_2d_map_flat({x = x0 + 150, y = z0 + 50})
 
 	local nixyz = 1 --3D node index
 	local nixz = 1 --2D node index
@@ -249,7 +249,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							data[vi] = c_moss
 
 							if random() < GEMCHA then
-								data[ai] = c_gem
+								data[ai] = c_gem1
 							end
 
 						elseif biome == 2 then
@@ -301,7 +301,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							data[bi] = c_salt
 
 							if random() < GEMCHA then
-								data[ai] = c_saltgem
+								data[ai] = c_saltgem1
 							end
 
 							if random() < STAGCHA then
@@ -343,7 +343,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							end
 
 							if random() < GEMCHA then
-								data[ai] = c_spike
+								data[ai] = c_spike1
 							end
 						end
 
