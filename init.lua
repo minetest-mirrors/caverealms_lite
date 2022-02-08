@@ -384,4 +384,4 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	--print ("[caverealms] "..chugent.." ms") --tell people how long
 end)
 
-print("[caverealms] loaded!")
+print("[MOD] Caverealms Lite loaded")
