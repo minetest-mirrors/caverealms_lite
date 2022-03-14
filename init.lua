@@ -126,7 +126,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				chulens2D):get_2d_map_flat({x = x0 + 150, y = z0 + 50})
 	else
 		nvals_biome = minetest.get_perlin_map(np_biome,
-				chulens2D)get2dMap_flat({x = x0 + 150, y = z0 + 50})
+				chulens2D):get2dMap_flat({x = x0 + 150, y = z0 + 50})
 	end
 
 	local nixyz = 1 --3D node index
