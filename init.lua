@@ -16,6 +16,8 @@ if minetest.get_modpath("mobs_monster") then
 	end
 end
 
+local is_50 = minetest.get_translator
+
 -- Parameters
 
 local YMIN = caverealms.config.ymin -- Approximate realm limits.
@@ -117,8 +119,15 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local minposxz = {x = x0, y = z0} --2D bottom corner
 
 	--2D noise for biomes (will be 3D humidity/temp later)
-	local nvals_biome = minetest.get_perlin_map(np_biome,
-			chulens2D):get_2d_map_flat({x = x0 + 150, y = z0 + 50})
+	local nvals_biome
+
+	if is_50 then
+		nvals_biome = minetest.get_perlin_map(np_biome,
+				chulens2D):get_2d_map_flat({x = x0 + 150, y = z0 + 50})
+	else
+		nvals_biome = minetest.get_perlin_map(np_biome,
+				chulens2D)get2dMap_flat({x = x0 + 150, y = z0 + 50})
+	end
 
 	local nixyz = 1 --3D node index
 	local nixz = 1 --2D node index
