@@ -16,7 +16,7 @@ if minetest.get_modpath("mobs_monster") then
 	end
 end
 
-local is_50 = minetest.get_translator
+local is_50 = minetest.has_feature("httpfetch_binary_data")
 
 -- Parameters
 
