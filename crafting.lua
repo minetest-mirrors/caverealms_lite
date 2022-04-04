@@ -1,15 +1,13 @@
 --reverse craft for glow mese
 minetest.register_craft({
 	output = "default:mese_crystal_fragment 8",
-	type = "shapeless",
-	recipe = {"caverealms:glow_mese"}
+	recipe = {{"caverealms:glow_mese"}}
 })
 
 --[[thin ice to water
 minetest.register_craft({
 	output = "default:water_source",
-	type = "shapeless",
-	recipe = {"caverealms:thin_ice"}
+	recipe = {{"caverealms:thin_ice"}}
 })]]
 
 --use for coal dust
@@ -100,24 +98,22 @@ if minetest.get_modpath("ethereal") then
 	minetest.register_craft({
 		output = "caverealms:angler_rod",
 		recipe = {
-				{"","","default:steel_ingot"},
-				{"", "default:steel_ingot", "caverealms:mushroom_gills"},
-				{"default:steel_ingot", "", "caverealms:mushroom_gills"},
-			}
+			{"","","default:steel_ingot"},
+			{"", "default:steel_ingot", "caverealms:mushroom_gills"},
+			{"default:steel_ingot", "", "caverealms:mushroom_gills"},
+		}
 	})
 
 	-- Glow Bait
 	minetest.register_craftitem("caverealms:glow_bait", {
 		description = "Glow Bait",
 		inventory_image = "caverealms_glow_bait.png",
-		wield_image = "caverealms_glow_bait.png",
+		wield_image = "caverealms_glow_bait.png"
 	})
 
 	minetest.register_craft({
 		output = "caverealms:glow_bait 9",
-		recipe = {
-				{"caverealms:glow_worm_green"},
-			}
+		recipe = {{"caverealms:glow_worm_green"}}
 	})
 
 	-- Pro Fishing Rod (Baited)
@@ -138,9 +134,9 @@ if minetest.get_modpath("ethereal") then
 
 			if (node == "default:water_source"
 			or node == "default:river_water_source")
-			and math.random(1, 100) < 35 then
+			and math.random(100) < 35 then
 
-				local type = ethereal_fish[math.random(1, #ethereal_fish)][1]
+				local type = ethereal_fish[math.random(#ethereal_fish)][1]
 				local inv = user:get_inventory()
 
 				if inv:room_for_item("main", {name = type}) then
@@ -153,12 +149,11 @@ if minetest.get_modpath("ethereal") then
 						"Inventory full, Fish Got Away!")
 				end
 			end
-		end,
+		end
 	})
 
 	minetest.register_craft({
-		type = "shapeless",
 		output = "caverealms:angler_rod_baited",
-		recipe = {"caverealms:angler_rod", "caverealms:glow_bait"},
+		recipe = {{"caverealms:angler_rod", "caverealms:glow_bait"}}
 	})
 end

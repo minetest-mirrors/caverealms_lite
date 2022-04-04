@@ -24,8 +24,7 @@ local c_amethore = minetest.get_content_id("caverealms:glow_amethyst_ore")
 local c_thinice = minetest.get_content_id("caverealms:thin_ice")
 
 local c_gills = minetest.get_content_id("caverealms:mushroom_gills")
-local c_stem
-local c_cap
+local c_stem, c_cap
 
 if minetest.get_modpath("ethereal") then
 	c_stem = minetest.get_content_id("ethereal:mushroom_trunk")

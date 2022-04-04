@@ -10,10 +10,9 @@ dofile(modpath .. "/nodes.lua") --node definitions
 dofile(modpath .. "/plants.lua")
 dofile(modpath .. "/functions.lua") --function definitions
 
-if minetest.get_modpath("mobs_monster") then
-	if caverealms.config.dm_spawn == true then
-		dofile(modpath .. "/dungeon_master.lua") --special DMs for DM's Lair biome
-	end
+if minetest.get_modpath("mobs_monster")
+and caverealms.config.dm_spawn == true then
+	dofile(modpath .. "/dungeon_master.lua") --special DMs for DM's Lair biome
 end
 
 local is_50 = minetest.has_feature("httpfetch_binary_data")
@@ -96,8 +95,10 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		return --quit; otherwise, you'd have stalagmites all over the place
 	end
 
+	-- uncomment if using timer at bottom
+--	local t1 = os.clock()
+
 	--easy reference to commonly used values
-	local t1 = os.clock()
 	local x1 = maxp.x
 	local y1 = maxp.y
 	local z1 = maxp.z

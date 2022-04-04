@@ -7,7 +7,7 @@ minetest.register_node("caverealms:fungus", {
 	inventory_image = "caverealms_fungi.png",
 	wield_image = "caverealms_fungi.png",
 	is_ground_content = true,
-	groups = {oddly_breakable_by_hand=3, attached_node = 1},
+	groups = {oddly_breakable_by_hand = 3, attached_node = 1},
 	light_source = 5,
 	paramtype = "light",
 	drawtype = "plantlike",
@@ -16,8 +16,8 @@ minetest.register_node("caverealms:fungus", {
 	visual_scale = 1.0,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-	},
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
+	}
 })
 
 --mycena mushroom
@@ -27,7 +27,7 @@ minetest.register_node("caverealms:mycena", {
 	inventory_image = "caverealms_mycena.png",
 	wield_image = "caverealms_mycena.png",
 	is_ground_content = true,
-	groups = {oddly_breakable_by_hand=3, attached_node = 1},
+	groups = {oddly_breakable_by_hand = 3, attached_node = 1},
 	light_source = 6,
 	paramtype = "light",
 	drawtype = "plantlike",
@@ -36,8 +36,8 @@ minetest.register_node("caverealms:mycena", {
 	visual_scale = 1.0,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-	},
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
+	}
 })
 
 --giant mushroom
@@ -50,7 +50,7 @@ else
 		description = "Giant Mushroom Stem",
 		tiles = {"caverealms_mushroom_stem.png"},
 		is_ground_content = true,
-		groups = {choppy = 2, oddly_breakable_by_hand = 1},
+		groups = {choppy = 2, oddly_breakable_by_hand = 1}
 	})
 
 	--cap
@@ -77,7 +77,7 @@ minetest.register_node("caverealms:mushroom_gills", {
 	light_source = 10,
 	groups = {choppy = 2, oddly_breakable_by_hand = 1},
 	drawtype = "plantlike",
-	paramtype = "light",
+	paramtype = "light"
 })
 
 -- add caverealms mushroom sapling
@@ -96,7 +96,7 @@ minetest.register_node("caverealms:mushroom_sapling", {
 		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
 	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = default.node_sound_leaves_defaults()
 })
 
 
@@ -171,7 +171,6 @@ minetest.register_abm({
 
 			grow_caverealms_mushroom(pos)
 
-
 		-- caverealms sapling on lichen stone
 		elseif node.name == "caverealms:mushroom_sapling"
 		and under == "caverealms:stone_with_lichen"
@@ -179,8 +178,7 @@ minetest.register_abm({
 
 			grow_caverealms_mushroom(pos)
 		end
-
-	end,
+	end
 })
 
 
@@ -206,5 +204,5 @@ minetest.register_abm({
 		if #num > 0 then
 			minetest.set_node(num[math.random(#num)], {name = node.name})
 		end
-	end,
+	end
 })
