@@ -34,6 +34,7 @@ else
 	c_cap = minetest.get_content_id("caverealms:mushroom_cap")
 end
 
+local c_ignore = minetest.get_content_id("ignore")
 
 -- FUNCTIONS --
 
@@ -41,7 +42,7 @@ function caverealms:above_solid(x, y, z, area, data)
 
 	local ai = area:index(x, y + 1, z - 3)
 
-	if data[ai] == c_air then
+	if data[ai] == c_air or data[ai] == c_ignore then
 		return false
 	end
 
@@ -53,7 +54,7 @@ function caverealms:below_solid(x, y, z, area, data)
 
 	local ai = area:index(x, y - 1, z - 3)
 
-	if data[ai] == c_air then
+	if data[ai] == c_air or data[ai] == c_ignore then
 		return false
 	end
 
@@ -69,7 +70,6 @@ function caverealms:stalagmite(x, y, z, area, data)
 	if not caverealms:below_solid(x, y, z, area, data) then
 		return
 	end
-
 
 	local top = random(6, H_LAG) --random height for the stalagmite
 	local vi

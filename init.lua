@@ -211,7 +211,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					end
 
 					--ceiling
-					ai = area:index(x,y + 1,z) --above index
+					ai = area:index(x, y + 1, z) --above index
 
 					if data[ai] == c_stone and data[vi] == c_air then --ceiling
 
@@ -230,7 +230,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 								bbi = area:index(x, y - 2, z)
 								data[bbi] = c_selected_worm
 
-								if random(2) ==1 then
+								if random(2) == 1 then
 									bbbi = area:index(x, y - 3, z)
 									data[bbbi] = c_selected_worm
 								end
@@ -365,7 +365,6 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							caverealms:crystal_stalagmite(x, y, z, area, data, biome)
 						end
 					end
-
 				end
 
 				nixyz2 = nixyz2 + 1
@@ -393,5 +392,6 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	--local chugent = math.ceil((os.clock() - t1) * 1000) --grab how long it took
 	--print ("[caverealms] "..chugent.." ms") --tell people how long
 end)
+
 
 print("[MOD] Caverealms Lite loaded")
