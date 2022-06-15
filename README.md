@@ -61,7 +61,7 @@ https://gitlab.com/VanessaE/hdx-128.
 * output = "default:mese_crystal_fragment 8",
 * recipe =
 
-    {{"caverealms:glow_mese"}}
+	{{"caverealms:glow_mese"}}
 
 **thin ice to water**
 
@@ -109,6 +109,7 @@ https://gitlab.com/VanessaE/hdx-128.
 
     {"default:glass", "default:glass", "default:glass"},
     {"default:glass", "default:glass", "caverealms:glow_obsidian"}
+..or..
     {"default:glass", "default:glass", "default:glass"},
     {"default:glass", "default:glass", "caverealms:glow_obsidian_2"}
 
