@@ -222,7 +222,7 @@ minetest.register_node("caverealms:icicle_up", {
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -7/16, 0.5}
-	},
+	}
 })
 
 --downward pointing icicle
@@ -244,7 +244,7 @@ minetest.register_node("caverealms:icicle_down", {
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.5, 7/16, -0.5, 0.5, 0.5, 0.5}
-	},
+	}
 })
 
 --cave mossy cobble - bluish?
@@ -467,7 +467,7 @@ else
 		drawtype = "plantlike",
 		tiles = {{
 			name = "fire_basic_flame_animated.png",
-			animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 1},
+			animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 1}
 		}},
 		inventory_image = "fire_basic_flame.png",
 		light_source = 14,

@@ -134,7 +134,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local nixz = 1 --2D node index
 	local nixyz2 = 1 --second 3D index for second loop
 
-	local vi, ai, bi, bbi, bbbi, c_selected_worm, is_deep
+	local vi, ai, aii, bi, bbi, bbbi, c_selected_worm, is_deep
 	local biome, n_biome, gems, gidx, spikes, sidx
 
 	for z = z0, z1 do -- for each xy plane progressing northwards
@@ -142,13 +142,13 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		--increment indices
 		nixyz = nixyz + 1
 
-
 		--decoration loop
 		for y = y0, y1 do -- for each x row progressing upwards
 
 			c_selected_worm = c_worm
 
 			is_deep = false
+
 			if y < DEEP_CAVE then
 				is_deep = true
 			end
@@ -212,8 +212,10 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 					--ceiling
 					ai = area:index(x, y + 1, z) --above index
+					aii = area:index(x, y + 2, z) --above above index
 
-					if data[ai] == c_stone and data[vi] == c_air then --ceiling
+					if data[aii] == c_stone
+					and data[ai] == c_stone and data[vi] == c_air then --ceiling
 
 						if random() < ICICHA and (biome == 4 or biome == 5) then
 							data[vi] = c_icid
@@ -279,9 +281,11 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							end
 
 						elseif biome == 3 then
+
 							data[vi] = c_algae
 
 						elseif biome == 4 then
+
 							data[vi] = c_thinice
 							bi = area:index(x, y - 1, z)
 							data[bi] = c_thinice
@@ -291,6 +295,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							end
 
 						elseif biome == 5 then
+
 							data[vi] = c_ice
 							bi = area:index(x, y - 1, z)
 							data[bi] = c_ice
@@ -300,12 +305,15 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							end
 
 						elseif biome == 6 then
+
 							data[vi] = c_hcobble
+
 							if random() < FLACHA then --neverending flames
 								data[ai] = c_flame
 							end
 
 						elseif biome == 7 then
+
 							bi = area:index(x, y - 1, z)
 							data[vi] = c_salt
 							data[bi] = c_salt
@@ -319,6 +327,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							end
 
 						elseif biome == 8 then
+
 							bi = area:index(x, y - 1, z)
 
 							if random() < 0.5 then
@@ -334,6 +343,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							end
 
 						elseif biome == 9 then
+
 							bi = area:index(x, y - 1, z)
 
 							if random() < 0.05 then

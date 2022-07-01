@@ -100,7 +100,7 @@ if minetest.get_modpath("ethereal") then
 		recipe = {
 			{"","","default:steel_ingot"},
 			{"", "default:steel_ingot", "caverealms:mushroom_gills"},
-			{"default:steel_ingot", "", "caverealms:mushroom_gills"},
+			{"default:steel_ingot", "", "caverealms:mushroom_gills"}
 		}
 	})
 

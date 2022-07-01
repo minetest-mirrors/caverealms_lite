@@ -398,7 +398,6 @@ function caverealms:salt_stalagmite(x, y, z, area, data, biome)
 	for j = 2, scale + 2 do --y
 		for k = -2, scale - 2 do
 			for l = -2, scale - 2 do
-
 				vi = area:index(x + k, y + j, z + l)
 				data[vi] = c_salt -- make cube
 			end

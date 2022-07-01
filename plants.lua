@@ -111,8 +111,7 @@ local add_tree = function (pos, ofx, ofy, ofz, schem)
 	-- remove sapling and place schematic
 	minetest.swap_node(pos, {name = "air"})
 	minetest.place_schematic(
-		{x = pos.x - ofx, y = pos.y - ofy, z = pos.z - ofz},
-		schem, 0, nil, false)
+		{x = pos.x - ofx, y = pos.y - ofy, z = pos.z - ofz}, schem, 0, nil, false)
 end
 
 
@@ -188,7 +187,7 @@ minetest.register_abm({
 	nodenames = {
 		"caverealms:stone_with_moss",
 		"caverealms:stone_with_lichen",
-		"caverealms:stone_with_algae",
+		"caverealms:stone_with_algae"
 	},
 	neighbors = {"air"},
 	interval = 16,
