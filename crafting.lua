@@ -51,16 +51,16 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "caverealms:glow_obsidian_glass 5",
 	recipe = {
-		{"default:glass", "default:glass", "default:glass"},
-		{"default:glass", "default:glass", "caverealms:glow_obsidian"}
+		{"default:obsidian_glass", "default:obsidian_glass", "default:obsidian_glass"},
+		{"default:obsidian_glass", "default:obsidian_glass", "caverealms:glow_obsidian"}
 	}
 })
 
 minetest.register_craft({
 	output = "caverealms:glow_obsidian_glass 5",
 	recipe = {
-		{"default:glass", "default:glass", "default:glass"},
-		{"default:glass", "default:glass", "caverealms:glow_obsidian_2"}
+		{"default:obsidian_glass", "default:obsidian_glass", "default:obsidian_glass"},
+		{"default:obsidian_glass", "default:obsidian_glass", "caverealms:glow_obsidian_2"}
 	}
 })
 
