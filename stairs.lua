@@ -65,3 +65,13 @@ do_stair(
 	default.node_sound_stone_defaults(),
 	false,
 	9)
+
+do_stair(
+	"Glow Obsidian Glass",
+	"glow_obsidian_glass",
+	"caverealms:glow_obsidian_glass",
+	{cracky = 3},
+	{"caverealms_glow_obsidian_glass_quarter.png"},
+	default.node_sound_glass_defaults(),
+	true,
+	13)
