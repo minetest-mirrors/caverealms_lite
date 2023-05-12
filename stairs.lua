@@ -14,15 +14,20 @@ local do_stair = function(
 	elseif stairs_plus then
 
 		local mod = "caverealms"
+		local registrations = {"register_stair", "register_slab", "register_slope",
+				"register_panel", "register_micro"}
 
-		stairsplus:register_all(mod, name, node, {
-			description = description,
-			tiles = texture,
-			groups = groups,
-			sunlight_propagates = sunlight,
-			light_source = light_source,
-			sounds = sound
-		})
+		for i, reg in ipairs(registrations) do
+
+			stairsplus[reg](stairsplus, mod, name, node, {
+				description = description,
+				tiles = {texture[i] or texture[1]},
+				groups = groups,
+				sunlight_propagates = sunlight,
+				light_source = light_source,
+				sounds = sound
+			})
+		end
 
 		-- aliases need to be set for previous stairs to avoid unknown nodes
 		minetest.register_alias_force("stairs:stair_" .. name,
@@ -66,12 +71,79 @@ do_stair(
 	false,
 	9)
 
-do_stair(
-	"Glow Obsidian Glass",
-	"glow_obsidian_glass",
-	"caverealms:glow_obsidian_glass",
-	{cracky = 3},
-	{"caverealms_glow_obsidian_glass_quarter.png"},
-	default.node_sound_glass_defaults(),
-	true,
-	13)
+
+-- Glow Obsidian Glass (stairs registered seperately to use special texture)
+
+local face_tex = "caverealms_glow_obsidian_glass.png"
+local side_tex = "caverealms_glow_obsidian_glass_quarter.png"
+
+if not stairs_plus and stairs_mod then
+
+	stairs.register_stair(
+		"glow_obsidian_glass",
+		"caverealms:glow_obsidian_glass",
+		{cracky = 2},
+		{side_tex, face_tex, side_tex, side_tex, face_tex, side_tex},
+		"Glow Obsidian Glass Stair",
+		default.node_sound_glass_defaults(),
+		false
+	)
+
+	stairs.register_slab(
+		"glow_obsidian_glass",
+		"caverealms:glow_obsidian_glass",
+		{cracky = 2},
+		{face_tex, face_tex, side_tex},
+		"Glow Obsidian Glass Slab",
+		default.node_sound_glass_defaults(),
+		false
+	)
+
+	stairs.register_stair_inner(
+		"glow_obsidian_glass",
+		"caverealms:glow_obsidian_glass",
+		{cracky = 2},
+		{side_tex, face_tex, side_tex, face_tex, face_tex, side_tex},
+		"",
+		default.node_sound_glass_defaults(),
+		false,
+		"Inner Glow Obsidian Glass Stair"
+	)
+
+	stairs.register_stair_outer(
+		"glow_obsidian_glass",
+		"caverealms:glow_obsidian_glass",
+		{cracky = 2},
+		{side_tex, face_tex, side_tex, side_tex, side_tex, side_tex},
+		"",
+		default.node_sound_glass_defaults(),
+		false,
+		"Outer Glow Obsidian Glass Stair"
+	)
+
+	if stairs_redo then
+
+		stairs.register_slope(
+			"glow_obsidian_glass",
+			"caverealms:glow_obsidian_glass",
+			{cracky = 2},
+			{face_tex},
+			"Glow Obsidian Glass Slope",
+			default.node_sound_glass_defaults()
+		)
+	end
+end
+
+-- this will use above function to register stairs_plus only nodes
+if stairs_plus then
+
+	do_stair(
+		"Glow Obsidian Glass",
+		"glow_obsidian_glass",
+		"caverealms:glow_obsidian_glass",
+		{cracky = 3},
+		{side_tex, face_tex, face_tex, face_tex, side_tex},
+		default.node_sound_glass_defaults(),
+		true,
+		13)
+end
