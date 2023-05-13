@@ -74,8 +74,9 @@ do_stair(
 
 -- Glow Obsidian Glass (stairs registered seperately to use special texture)
 
+local gsides = minetest.settings:get_bool("stairs.glass_sides") ~= false
 local face_tex = "caverealms_glow_obsidian_glass.png"
-local side_tex = "caverealms_glow_obsidian_glass_quarter.png"
+local side_tex = gsides and "caverealms_glow_obsidian_glass_quarter.png" or face_tex
 
 if not stairs_plus and stairs_mod then
 
