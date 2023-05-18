@@ -390,7 +390,7 @@ minetest.register_node("caverealms:glow_worm", {
 	paramtype = "light",
 	drawtype = "plantlike",
 	walkable = false,
-	buildable_to = true,
+--	buildable_to = true,
 	selection_box = {
 		type = "fixed",
 		fixed = {-1/6, -1/2, -1/6, 1/6, 1/2, 1/6}
@@ -408,7 +408,7 @@ minetest.register_node("caverealms:glow_worm_green", {
 	paramtype = "light",
 	drawtype = "plantlike",
 	walkable = false,
-	buildable_to = true,
+--	buildable_to = true,
 	visual_scale = 1.0,
 	selection_box = {
 		type = "fixed",
@@ -428,7 +428,7 @@ minetest.register_node("caverealms:fire_vine", {
 	paramtype = "light",
 	drawtype = "plantlike",
 	walkable = false,
-	buildable_to = true,
+--	buildable_to = true,
 	visual_scale = 1.0,
 	selection_box = {
 		type = "fixed",
