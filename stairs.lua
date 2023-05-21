@@ -132,6 +132,24 @@ if not stairs_plus and stairs_mod then
 			"Glow Obsidian Glass Slope",
 			default.node_sound_glass_defaults()
 		)
+
+		stairs.register_slope_inner(
+			"glow_obsidian_glass",
+			"caverealms:glow_obsidian_glass",
+			{cracky = 2},
+			{face_tex},
+			"Glow Obsidian Glass Inner Slope",
+			default.node_sound_glass_defaults()
+		)
+
+		stairs.register_slope_outer(
+			"glow_obsidian_glass",
+			"caverealms:glow_obsidian_glass",
+			{cracky = 2},
+			{face_tex},
+			"Glow Obsidian Glass Outer Slope",
+			default.node_sound_glass_defaults()
+		)
 	end
 end
 
