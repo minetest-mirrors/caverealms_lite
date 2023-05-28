@@ -86,9 +86,9 @@ if minetest.get_modpath("ethereal") then
 		end
 	end
 
-	-- Professional Fishing Rod
+	-- Fishing Rod
 	minetest.register_craftitem("caverealms:angler_rod", {
-		description = "Pro Fishing Rod",
+		description = "Simple Fishing Rod",
 		inventory_image = "caverealms_angler_rod.png",
 		wield_image = "caverealms_angler_rod.png",
 		on_place = rod_use,
@@ -118,7 +118,7 @@ if minetest.get_modpath("ethereal") then
 
 	-- Pro Fishing Rod (Baited)
 	minetest.register_craftitem("caverealms:angler_rod_baited", {
-		description = "Baited Pro Fishing Rod",
+		description = "Baited Simple Fishing Rod (USE on water source)",
 		inventory_image = "caverealms_angler_rod_baited.png",
 		wield_image = "caverealms_angler_rod_weild.png",
 		stack_max = 1,
@@ -134,7 +134,7 @@ if minetest.get_modpath("ethereal") then
 
 			if (node == "default:water_source"
 			or node == "default:river_water_source")
-			and math.random(100) < 35 then
+			and math.random(100) < 10 then
 
 				local type = ethereal_fish[math.random(#ethereal_fish)][1]
 				local inv = user:get_inventory()
