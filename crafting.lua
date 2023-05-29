@@ -64,45 +64,8 @@ minetest.register_craft({
 	}
 })
 
--- Requires ethereal:fish_raw
+-- Requires ethereal
 if minetest.get_modpath("ethereal") then
-
-	local ethereal_fish = {
-		{"ethereal:fish_chichlid"},
-		{"ethereal:fish_bluefin"},
-		{"ethereal:fish_clownfish"}
-	}
-
-	-- Used when right-clicking with fishing rod to check for worm and bait rod
-	local rod_use = function(itemstack, placer, pointed_thing)
-
-		local inv = placer:get_inventory()
-
-		if inv:contains_item("main", "caverealms:glow_bait") then
-
-			inv:remove_item("main", "caverealms:glow_bait")
-
-			return ItemStack("caverealms:angler_rod_baited")
-		end
-	end
-
-	-- Fishing Rod
-	minetest.register_craftitem("caverealms:angler_rod", {
-		description = "Simple Fishing Rod",
-		inventory_image = "caverealms_angler_rod.png",
-		wield_image = "caverealms_angler_rod.png",
-		on_place = rod_use,
-		on_secondary_use = rod_use
-	})
-
-	minetest.register_craft({
-		output = "caverealms:angler_rod",
-		recipe = {
-			{"","","default:steel_ingot"},
-			{"", "default:steel_ingot", "caverealms:mushroom_gills"},
-			{"default:steel_ingot", "", "caverealms:mushroom_gills"}
-		}
-	})
 
 	-- Glow Bait
 	minetest.register_craftitem("caverealms:glow_bait", {
@@ -112,48 +75,11 @@ if minetest.get_modpath("ethereal") then
 	})
 
 	minetest.register_craft({
-		output = "caverealms:glow_bait 9",
+		output = "caverealms:glow_bait 3",
 		recipe = {{"caverealms:glow_worm_green"}}
 	})
 
-	-- Pro Fishing Rod (Baited)
-	minetest.register_craftitem("caverealms:angler_rod_baited", {
-		description = "Baited Simple Fishing Rod (USE on water source)",
-		inventory_image = "caverealms_angler_rod_baited.png",
-		wield_image = "caverealms_angler_rod_weild.png",
-		stack_max = 1,
-		liquids_pointable = true,
-
-		on_use = function (itemstack, user, pointed_thing)
-
-			if pointed_thing.type ~= "node" then
-				return
-			end
-
-			local node = minetest.get_node(pointed_thing.under).name
-
-			if (node == "default:water_source"
-			or node == "default:river_water_source")
-			and math.random(100) < 10 then
-
-				local type = ethereal_fish[math.random(#ethereal_fish)][1]
-				local inv = user:get_inventory()
-
-				if inv:room_for_item("main", {name = type}) then
-
-					inv:add_item("main", {name = type})
-
-					return ItemStack("caverealms:angler_rod")
-				else
-					minetest.chat_send_player(user:get_player_name(),
-						"Inventory full, Fish Got Away!")
-				end
-			end
-		end
-	})
-
-	minetest.register_craft({
-		output = "caverealms:angler_rod_baited",
-		recipe = {{"caverealms:angler_rod", "caverealms:glow_bait"}}
-	})
+	-- alias old pro fishing rods
+	minetest.register_alias("caverealms:angler_rod", "default:stick")
+	minetest.register_alias("caverealms:angler_rod_baited", "default:stick")
 end
