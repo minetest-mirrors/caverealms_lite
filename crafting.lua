@@ -80,6 +80,6 @@ if minetest.get_modpath("ethereal") then
 	})
 
 	-- alias old pro fishing rods
-	minetest.register_alias("caverealms:angler_rod", "default:stick")
-	minetest.register_alias("caverealms:angler_rod_baited", "default:stick")
+	minetest.register_alias("caverealms:angler_rod", "default:steel_ingot")
+	minetest.register_alias("caverealms:angler_rod_baited", "default:steel_ingot")
 end
