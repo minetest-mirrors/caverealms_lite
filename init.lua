@@ -16,8 +16,6 @@ and caverealms.config.dm_spawn == true then
 	dofile(modpath .. "/dungeon_master.lua") --special DMs for DM's Lair biome
 end
 
-local is_50 = minetest.has_feature("httpfetch_binary_data")
-
 -- Parameters
 
 local YMIN = caverealms.config.ymin -- Approximate realm limits.
@@ -123,13 +121,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	--2D noise for biomes (will be 3D humidity/temp later)
 	local nvals_biome
 
-	if is_50 then
-		nvals_biome = minetest.get_perlin_map(np_biome,
-				chulens2D):get_2d_map_flat({x = x0 + 150, y = z0 + 50})
-	else
-		nvals_biome = minetest.get_perlin_map(np_biome,
-				chulens2D):get2dMap_flat({x = x0 + 150, y = z0 + 50})
-	end
+	nvals_biome = minetest.get_perlin_map(np_biome,
+			chulens2D):get_2d_map_flat({x = x0 + 150, y = z0 + 50})
 
 	local nixyz = 1 --3D node index
 	local nixz = 1 --2D node index
