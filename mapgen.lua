@@ -823,9 +823,9 @@ local function generate(vm, minp, maxp)
 	if not async_env then
 		vm:write_to_map(data)
 	end
-
-	local chugent = math.ceil((os.clock() - t1) * 1000) --grab how long it took
 --[[
+	local chugent = math.ceil((os.clock() - t1) * 1000) --grab how long it took
+
 	print("[caverealms] Took "..chugent.." ms generating "
 		.. minetest.pos_to_string(minp) .. " to "
 		.. minetest.pos_to_string(maxp)) --tell people how long
