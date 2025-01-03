@@ -823,13 +823,15 @@ local function generate(vm, minp, maxp)
 	if not async_env then
 		vm:write_to_map(data)
 	end
+
+	collectgarbage("collect") -- Gargabge collection doesn't run automatically in mapgen env
 --[[
 	local chugent = math.ceil((os.clock() - t1) * 1000) --grab how long it took
 
 	print("[caverealms] Took "..chugent.." ms generating "
 		.. minetest.pos_to_string(minp) .. " to "
 		.. minetest.pos_to_string(maxp)) --tell people how long
-	print("caverealms-mem: " .. collectgarbage("count") / 1024 .. " MiB")
+		print("[caverealms] Used memory: " .. collectgarbage("count") / 1024 .. " MiB")
 ]]
 end
 
